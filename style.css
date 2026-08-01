@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #26364d;
+    background-color: #ffffff;
+}
+
+.quiz-container {
+    width: 100%;
+    padding: 0 3rem;
+}
+
+.question {
+    margin: 0;
+    padding: 32px 0 60px;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    background: transparent;
+}
+
+.question legend {
+    width: 100%;
+    margin-bottom: 48px;
+    padding: 0;
+    font-size: clamp(1.35rem, 2.4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.likert-scale {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+}
+
+.scale-label {
+    min-width: 125px;
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    font-weight: 400;
+}
+
+.agree-label {
+    color: #2fa574;
+    text-align: left;
+}
+
+.disagree-label {
+    color: #8c5ca6;
+    text-align: right;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+}
+
+.option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.circle {
+    display: block;
+    border: 3px solid;
+    border-radius: 50%;
+    background-color: transparent;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.circle-large {
+    width: 72px;
+    height: 72px;
+}
+
+.circle-medium {
+    width: 58px;
+    height: 58px;
+}
+
+.circle-small {
+    width: 48px;
+    height: 48px;
+}
+
+.circle-neutral {
+    width: 40px;
+    height: 40px;
+}
+
+.agree-option .circle {
+    border-color: #2fa574;
+}
+
+.neutral-option .circle {
+    border-color: #9ca3af;
+}
+
+.disagree-option .circle {
+    border-color: #8c5ca6;
+}
+
+.option:hover .circle {
+    transform: scale(1.08);
+}
+
+.option input:focus-visible + .circle {
+    outline: 3px solid #26364d;
+    outline-offset: 5px;
+}
+
+.agree-option input:checked + .circle {
+    background-color: #2fa574;
+    box-shadow: inset 0 0 0 7px #ffffff;
+}
+
+.neutral-option input:checked + .circle {
+    background-color: #9ca3af;
+    box-shadow: inset 0 0 0 7px #ffffff;
+}
+
+.disagree-option input:checked + .circle {
+    background-color: #8c5ca6;
+    box-shadow: inset 0 0 0 7px #ffffff;
+}
+
+/* White check mark inside the selected circle */
+.option input:checked + .circle {
+    position: relative;
+}
+
+.option input:checked + .circle::after {
+    content: "";
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    width: 26%;
+    height: 45%;
+    border-right: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 60px;
+}
+
+.submit-button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #26364d;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #3c4d65;
+}
+
+@media (max-width: 950px) {
+    .quiz-container {
+        padding: 0 1.5rem;
+    }
+
+    .likert-scale {
+        gap: 20px;
+    }
+
+    .options {
+        gap: 22px;
+    }
+
+    .scale-label {
+        min-width: 95px;
+    }
+}
+
+@media (max-width: 750px) {
+    .question {
+        padding-bottom: 45px;
+    }
+
+    .question legend {
+        margin-bottom: 35px;
+    }
+
+    .likert-scale {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 10px;
+    }
+
+    .options {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .agree-label {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .disagree-label {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .scale-label {
+        min-width: 0;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .quiz-container {
+        padding: 0 1rem;
+    }
+
+    .options {
+        gap: 9px;
+    }
+
+    .circle-large {
+        width: 48px;
+        height: 48px;
+    }
+
+    .circle-medium {
+        width: 42px;
+        height: 42px;
+    }
+
+    .circle-small {
+        width: 36px;
+        height: 36px;
+    }
+
+    .circle-neutral {
+        width: 32px;
+        height: 32px;
+    }
+
+    .option input:checked + .circle::after {
+        border-right-width: 2px;
+        border-bottom-width: 2px;
+    }
+}
