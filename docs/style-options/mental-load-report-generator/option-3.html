@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 3 - Warm Minimal Neutral</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-option-3">
+  <main class="single-page">
+    <nav class="page-nav" aria-label="Visual style options">
+      <a href="index.html">All options</a>
+      <a href="option-1.html">Option 1</a>
+      <a href="option-2.html">Option 2</a>
+      <a aria-current="page" href="option-3.html">Option 3</a>
+    </nav>
+
+    <article class="style-option theme-option-3" aria-labelledby="option-3-title">
+      <!-- Header -->
+      <header class="sample-header">
+        <div class="option-heading-row">
+          <div>
+            <p class="option-label">OPTION 3</p>
+            <h1 id="option-3-title">Warm Minimal Neutral</h1>
+          </div>
+        </div>
+        <p class="header-description">
+          A warm, minimal and editorial direction designed to feel reflective, understated and suitable for a personal research report.
+        </p>
+        <dl class="header-meta" aria-label="Sample details">
+          <div>
+            <dt>Project</dt>
+            <dd>Mental Load Report Generator</dd>
+          </div>
+          <div>
+            <dt>Best fit</dt>
+            <dd>Personal report and PDF output</dd>
+          </div>
+          <div>
+            <dt>Tone</dt>
+            <dd>Warm, minimal, reflective, premium</dd>
+          </div>
+        </dl>
+      </header>
+
+      <!-- Colour palette -->
+      <section class="section-block" aria-labelledby="palette-title">
+        <div class="section-heading">
+          <p class="section-label">COLOUR PALETTE</p>
+          <h2 id="palette-title">Proposed interface colours</h2>
+        </div>
+        <div class="palette-grid">
+          <article class="swatch-card">
+            <span class="swatch swatch-primary" aria-hidden="true"></span>
+            <div>
+              <h3>Primary / Work</h3>
+              <p class="hex-code">#526C78</p>
+              <p>Main interface interactions and Work data.</p>
+            </div>
+          </article>
+          <article class="swatch-card">
+            <span class="swatch swatch-home" aria-hidden="true"></span>
+            <div>
+              <h3>Home</h3>
+              <p class="hex-code">#A56556</p>
+              <p>Home-related data only.</p>
+            </div>
+          </article>
+          <article class="swatch-card">
+            <span class="swatch swatch-accent" aria-hidden="true"></span>
+            <div>
+              <h3>Accent</h3>
+              <p class="hex-code">#8F8063</p>
+              <p>Small headings, dividers, and reflective content.</p>
+            </div>
+          </article>
+          <article class="swatch-card">
+            <span class="swatch swatch-background" aria-hidden="true"></span>
+            <div>
+              <h3>Background</h3>
+              <p class="hex-code">#FAF9F6</p>
+              <p>Page background and quiet app chrome.</p>
+            </div>
+          </article>
+          <article class="swatch-card">
+            <span class="swatch swatch-text" aria-hidden="true"></span>
+            <div>
+              <h3>Text</h3>
+              <p class="hex-code">#2B2A27</p>
+              <p>Primary headings and readable body copy.</p>
+            </div>
+          </article>
+          <article class="swatch-card">
+            <span class="swatch swatch-border" aria-hidden="true"></span>
+            <div>
+              <h3>Border</h3>
+              <p class="hex-code">#DDD8CF</p>
+              <p>Rules, dividers, and subtle card outlines.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Typography sample -->
+      <section class="section-block typography-sample" aria-labelledby="type-title">
+        <div class="section-heading">
+          <p class="section-label">TYPOGRAPHY</p>
+          <h2 id="type-title">Report-style hierarchy</h2>
+        </div>
+        <div class="report-type-panel">
+          <p class="report-label">PERSONAL REPORT</p>
+          <h2>Your Mental Load Profile</h2>
+          <p class="report-subheading">
+            Complete the questionnaire to receive a personalised summary of your mental load across home and work.
+          </p>
+          <p>
+            Mental load is the thinking work that keeps things running for the people around you. This sample keeps the tone calm, descriptive, and research-focused, with generous spacing and restrained visual emphasis.
+          </p>
+          <p class="helper-text">
+            Helper text example: Your responses are private and are used to generate your personal report.
+          </p>
+        </div>
+      </section>
+
+      <!-- Questionnaire mock-up -->
+      <section class="section-block" aria-labelledby="questionnaire-title">
+        <div class="section-heading">
+          <p class="section-label">QUESTIONNAIRE</p>
+          <h2 id="questionnaire-title">Interface sample</h2>
+        </div>
+        <article class="questionnaire-card" aria-labelledby="question-title">
+          <div class="question-meta">
+            <p><strong>Question 4 of 20</strong></p>
+            <p aria-label="Progress">20% complete</p>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span class="progress-fill"></span>
+          </div>
+          <p class="question-kicker">Thinking work: remembering and monitoring</p>
+          <fieldset class="question-fieldset">
+            <legend id="question-title">
+              I am usually the person who remembers what needs to be done.
+            </legend>
+            <div class="likert-list" role="radiogroup" aria-label="Question 4 answers">
+              <label class="likert-option">
+                <input type="radio" name="q4" value="strongly-disagree">
+                <span class="option-text">Strongly disagree</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="q4" value="disagree">
+                <span class="option-text">Disagree</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="q4" value="neither">
+                <span class="option-text">Neither agree nor disagree</span>
+              </label>
+              <label class="likert-option is-selected">
+                <input type="radio" name="q4" value="agree" checked>
+                <span class="option-text">Agree</span>
+                <span class="selected-tag">Selected</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="q4" value="strongly-agree">
+                <span class="option-text">Strongly agree</span>
+              </label>
+            </div>
+          </fieldset>
+          <div class="button-row">
+            <button class="button button-secondary" type="button">Previous</button>
+            <button class="button button-primary" type="button">Continue</button>
+          </div>
+        </article>
+        <div class="state-strip" aria-label="Interface state examples">
+          <span class="state-pill">Default</span>
+          <span class="state-pill state-hover">Hover</span>
+          <span class="state-pill state-focus">Focus</span>
+          <span class="state-pill state-selected">Selected</span>
+          <span class="state-pill state-disabled" aria-disabled="true">Disabled</span>
+        </div>
+      </section>
+
+      <!-- Results mock-up -->
+      <section class="section-block" aria-labelledby="results-title">
+        <div class="section-heading">
+          <p class="section-label">RESULTS</p>
+          <h2 id="results-title">Home and Work comparison</h2>
+        </div>
+        <article class="results-panel" aria-label="Mental load score comparison">
+          <div class="result-legend" aria-label="Chart legend">
+            <span><i class="legend-line work-line" aria-hidden="true"></i>Work: muted blue-grey, solid bar</span>
+            <span><i class="legend-line home-line" aria-hidden="true"></i>Home: terracotta, patterned bar</span>
+          </div>
+          <div class="result-row work-row">
+            <div class="result-copy">
+              <h3>Work</h3>
+              <p>Score: 4.4 / 7</p>
+            </div>
+            <div class="score-track" aria-hidden="true">
+              <span class="score-fill work-fill" style="--score-width: 62.857%;"></span>
+            </div>
+          </div>
+          <div class="result-row home-row">
+            <div class="result-copy">
+              <h3>Home</h3>
+              <p>Score: 5.5 / 7</p>
+            </div>
+            <div class="score-track" aria-hidden="true">
+              <span class="score-fill home-fill" style="--score-width: 78.571%;"></span>
+            </div>
+          </div>
+          <div class="score-scale" aria-hidden="true">
+            <span>0</span>
+            <span>7</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- Headline card -->
+      <section class="section-block" aria-labelledby="headline-title">
+        <div class="headline-card">
+          <p class="headline-label" id="headline-title">REPORT HEADLINE</p>
+          <p>
+            Your mental load is currently higher at home than at work. This is descriptive and is not a judgement of either domain.
+          </p>
+        </div>
+      </section>
+
+      <!-- Accessibility notes -->
+      <section class="section-block accessibility-notes" aria-labelledby="accessibility-title">
+        <div class="section-heading">
+          <p class="section-label">ACCESSIBILITY NOTES</p>
+          <h2 id="accessibility-title">Usage guidance</h2>
+        </div>
+        <ul>
+          <li>Colour should not be the only way to communicate meaning.</li>
+          <li>Work and Home charts should also use labels or different line styles.</li>
+          <li>Text contrast should meet WCAG AA.</li>
+          <li>Touch targets should be at least 44px high.</li>
+        </ul>
+      </section>
+      <p class="concept-note">Initial concept only — colours and typography can be refined based on client feedback and final UWA branding requirements.</p>
+    </article>
+  </main>
+</body>
+</html>
