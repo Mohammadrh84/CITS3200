@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Age Slider Example</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    
+    <link rel="stylesheet" href="mock_questions.css">
+
+    <script src="mock_questions.js" defer></script>
+</head>
+
+<body>
+
+    <main class="survey-container">
+        <!-- =========================
+        QUESTION: What is your age in years?
+        ========================= -->
+        <section class="age-question">
+            <!-- Question label -->
+            <label
+                for="age-slider"
+                class="age-question-label"
+            >
+                What is your age in years?
+            </label>
+
+            <div class="age-control-row">
+
+                <!-- Slider and scale -->
+                <div class="age-slider-section">
+                    <!-- Slider from 0 to 100 -->
+                    <input
+                        type="range"
+                        id="age-slider"
+                        name="age-slider"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="0"
+                    >
+                    <!-- Age scale labels -->
+                    <div class="age-scale">
+                        <span>0</span>
+                        <span>10</span>
+                        <span>20</span>
+                        <span>30</span>
+                        <span>40</span>
+                        <span>50</span>
+                        <span>60</span>
+                        <span>70</span>
+                        <span>80</span>
+                        <span>90</span>
+                        <span>100</span>
+                    </div>
+
+                </div>
+
+                
+                <div class="age-entry">
+                    <!-- Number input for age -->
+                    <input
+                        type="number"
+                        id="age-number"
+                        name="age"
+                        min="0"
+                        max="100"
+                        value="0"
+                        aria-label="Enter your age in years"
+                    >
+
+                    <span>years</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+            <!-- Divider line -->
+            <hr class="question-divider">
+
+            <!-- =========================
+            QUESTION: Do you consent to participate in this research project?
+            ========================= -->
+
+            <section class="consent-question">
+
+            <!-- Consent question -->
+            <p class="consent-question-label">
+                I consent to participate in this research project
+            </p>
+
+            <!-- Consent options -->
+            <div class="consent-options">
+
+                <!-- Yes option -->
+                <label class="consent-option">
+
+                    <input
+                        type="radio"
+                        name="consent"
+                        value="yes"
+                    >
+
+                    <span class="custom-radio"></span>
+
+                    <span class="consent-text">
+                        Yes, I consent
+                    </span>
+
+                </label>
+
+
+                <!-- No option -->
+                <label class="consent-option">
+
+                    <input
+                        type="radio"
+                        name="consent"
+                        value="no"
+                    >
+
+                    <span class="custom-radio"></span>
+
+                    <span class="consent-text">
+                        No, I do not consent
+                    </span>
+
+                </label>
+
+            </div>
+
+        </section>
+    
+        <!-- Divider line -->
+        <hr class="question-divider">
+
+        <!-- =========================
+        QUESTION: How old are your children (in years)?
+        ========================= -->
+
+        <!--
+        TODO:
+        When the full survey is implemented, only show the same number
+        of child age inputs as the number of children entered earlier.
+        -->
+
+        <!-- Children age question -->
+        <section class="children-age-question">
+
+            <!-- Question text -->
+            <p class="children-age-label">
+                How old are your children (in years)?
+            </p>
+
+            <!-- Child 1 -->
+            <div class="child-age-row">
+                <label for="child-1-age">
+                    Child 1
+                </label>
+
+                <input
+                    type="number"
+                    id="child-1-age"
+                    name="child-1-age"
+                    min="0"
+                    max="100"
+                    placeholder="Enter age"
+                >
+            </div>
+
+            <!-- Child 2 -->
+            <div class="child-age-row">
+                <label for="child-2-age">
+                    Child 2
+                </label>
+
+                <input
+                    type="number"
+                    id="child-2-age"
+                    name="child-2-age"
+                    min="0"
+                    max="100"
+                    placeholder="Enter age"
+                >
+            </div>
+
+            <!-- Child 3 -->
+            <div class="child-age-row">
+                <label for="child-3-age">
+                    Child 3
+                </label>
+
+                <input
+                    type="number"
+                    id="child-3-age"
+                    name="child-3-age"
+                    min="0"
+                    max="100"
+                    placeholder="Enter age"
+                >
+            </div>
+
+            <!-- Child 4 -->
+            <div class="child-age-row">
+                <label for="child-4-age">
+                    Child 4
+                </label>
+
+                <input
+                    type="number"
+                    id="child-4-age"
+                    name="child-4-age"
+                    min="0"
+                    max="100"
+                    placeholder="Enter age"
+                >
+            </div>
+
+            <!-- Child 5 -->
+            <div class="child-age-row">
+                <label for="child-5-age">
+                    Child 5
+                </label>
+
+                <input
+                    type="number"
+                    id="child-5-age"
+                    name="child-5-age"
+                    min="0"
+                    max="100"
+                    placeholder="Enter age"
+                >
+            </div>
+
+        </section>
+
+
+
+
+
+
+    </main>
+
+</body>
+
+</html>
