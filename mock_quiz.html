@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mock Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<main class="quiz-container">
+    <form id="quiz-form" novalidate>
+
+        <!-- Question Type: Matrix grid -->
+        <section class="question" role="group" aria-labelledby="label-frequency">
+
+            <p class="question-label" id="label-frequency">
+                How often do you do each of the following?
+            </p>
+
+            <div class="matrix-scroll">
+                <table class="matrix">
+
+                    <thead>
+                        <tr>
+                            <td class="matrix-corner"></td>
+                            <th scope="col" class="matrix-first">Never</th>
+                            <th scope="col">Rarely</th>
+                            <th scope="col">Occasionally</th>
+                            <th scope="col">Sometimes</th>
+                            <th scope="col">Often</th>
+                            <th scope="col">Very Often</th>
+                            <th scope="col">Always</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- Statement 1 -->
+                        <tr>
+                            <th scope="row">Choose which action needed to be taken</th>
+
+                            <td class="matrix-first">
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="1">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Never</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="2">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Rarely</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="3">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Occasionally</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="4">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Sometimes</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="5">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="6">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Very Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question1" value="7">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Always</span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <!-- Statement 2 -->
+                        <tr>
+                            <th scope="row">Decide how to go about something</th>
+
+                            <td class="matrix-first">
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="1">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Never</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="2">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Rarely</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="3">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Occasionally</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="4">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Sometimes</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="5">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="6">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Very Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question2" value="7">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Always</span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <!-- Statement 3 -->
+                        <tr>
+                            <th scope="row">Compare multiple courses of action</th>
+
+                            <td class="matrix-first">
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="1">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Never</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="2">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Rarely</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="3">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Occasionally</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="4">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Sometimes</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="5">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="6">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Very Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question3" value="7">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Always</span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <!-- Statement 4 -->
+                        <tr>
+                            <th scope="row">Think about how to reschedule one or more activities</th>
+
+                            <td class="matrix-first">
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="1">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Never</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="2">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Rarely</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="3">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Occasionally</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="4">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Sometimes</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="5">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="6">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Very Often</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="option matrix-cell">
+                                    <input type="radio" name="question4" value="7">
+                                    <span class="mark mark-radio"></span>
+                                    <span class="matrix-scale-text">Always</span>
+                                </label>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- Question Type: Single choice -->
+        <section class="question" role="group" aria-labelledby="label-gender">
+
+            <p class="question-label" id="label-gender">
+                How do you describe your gender?
+            </p>
+
+            <div class="choice-list">
+
+                <label class="option choice">
+                    <input type="radio" name="gender" value="male">
+                    <span class="mark mark-radio"></span>
+                    <span class="choice-text">Male</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="radio" name="gender" value="female">
+                    <span class="mark mark-radio"></span>
+                    <span class="choice-text">Female</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="radio" name="gender" value="non-binary">
+                    <span class="mark mark-radio"></span>
+                    <span class="choice-text">Non-binary</span>
+                </label>
+
+                <label class="option choice">
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="different-term"
+                        data-specify="gender-specify"
+                    >
+                    <span class="mark mark-radio"></span>
+                    <span class="choice-text">I use a different term (please specify)</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="gender-specify"
+                    name="gender-specify"
+                    class="specify-field"
+                    placeholder="Your term"
+                    aria-label="Please specify the term you use"
+                    hidden
+                >
+
+                <label class="option choice">
+                    <input type="radio" name="gender" value="prefer-not-to-say">
+                    <span class="mark mark-radio"></span>
+                    <span class="choice-text">Prefer not to say</span>
+                </label>
+
+            </div>
+
+        </section>
+
+        <!-- Question Type: Multiple choice -->
+        <section class="question" role="group" aria-labelledby="label-ethnicity">
+
+            <p class="question-label" id="label-ethnicity">
+                Which of the following best describes your race and/or ethnicity?
+                <span class="question-hint">Select all that apply.</span>
+            </p>
+
+            <div class="choice-list">
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="white">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">White</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="aboriginal-torres-strait">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Aboriginal and/or Torres Strait Islander</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="pacific-islander">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Pacific Islander</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="southeast-asian">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Southeast Asian</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="south-asian-indian">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">South Asian Indian (India)</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="east-asian">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">East Asian</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="middle-eastern">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Middle Eastern</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="hispanic-latino">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Hispanic/Latino</span>
+                </label>
+
+                <label class="option choice">
+                    <input type="checkbox" name="ethnicity" value="black-african">
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Black/African Ancestry</span>
+                </label>
+
+                <label class="option choice">
+                    <input
+                        type="checkbox"
+                        name="ethnicity"
+                        value="other"
+                        data-specify="ethnicity-specify"
+                    >
+                    <span class="mark mark-check"></span>
+                    <span class="choice-text">Other (please specify)</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="ethnicity-specify"
+                    name="ethnicity-specify"
+                    class="specify-field"
+                    placeholder="Your answer"
+                    aria-label="Please specify your race and/or ethnicity"
+                    hidden
+                >
+
+            </div>
+
+        </section>
+
+        <!-- Question Type: Dropdown -->
+        <section class="question" role="group" aria-labelledby="label-nationality">
+
+            <label class="question-label" id="label-nationality" for="nationality">
+                What is your nationality?
+                <span class="question-hint">Select your country from the list below.</span>
+            </label>
+
+            <div class="select-wrapper">
+                <select
+                    id="nationality"
+                    name="nationality"
+                    class="select-field"
+                >
+                    <option value="">Select a country</option>
+                </select>
+            </div>
+
+        </section>
+
+    </form>
+</main>
+
+</body>
+
+</html>

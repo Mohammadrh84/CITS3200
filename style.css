@@ -1,4 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+
+:root {
+    /* Brand */
+    --accent: #683AC2;
+    --accent-strong: #57309F;
+    --accent-tint: rgba(104, 58, 194, 0.08);
+    --accent-ring: rgba(104, 58, 194, 0.25);
+
+    /* Neutrals */
+    --page: #ffffff;
+    --ink: #3F4045;
+    --ink-soft: #6E7076;
+    --ink-faint: #9A9CA2;
+    --field: #EFEFEF;
+    --field-hover: #E6E6E7;
+    --line: #D9D9DB;
+
+    /* Type */
+    --size-question: 1.125rem;
+    --size-body: 1rem;
+    --size-scale: 0.9375rem;
+
+    /* Shape and rhythm */
+    --radius: 2px;
+    --gap-question: 56px;
+    --gap-label: 12px;
+}
 
 * {
     box-sizing: border-box;
@@ -8,68 +36,76 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: "Montserrat", sans-serif;
-    color: #26364d;
-    background-color: #ffffff;
+    font-size: var(--size-body);
+    line-height: 1.5;
+    color: var(--ink);
+    background-color: var(--page);
+    -webkit-font-smoothing: antialiased;
 }
 
 .quiz-container {
-    width: 100%;
-    padding: 0 3rem;
+    width: 95%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 48px 0 80px;
 }
+
+/* Visually hidden, still read by screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================
+   SHARED QUESTION SHELL
+   One rule set for every question block on the page.
+   Plain <section> rather than <fieldset>: a <legend> is laid out in
+   the fieldset's border box, which pushes padding below the question
+   wording and notches the divider line out of the top border.
+   ========================= */
 
 .question {
     margin: 0;
-    padding: 32px 0 60px;
-    border: none;
-    border-bottom: 1px solid #e5e7eb;
-    background: transparent;
-}
-
-.question legend {
-    width: 100%;
-    margin-bottom: 48px;
     padding: 0;
-    font-size: clamp(1.35rem, 2.4vw, 2rem);
-    font-weight: 700;
-    line-height: 1.3;
+    border: none;
 }
 
-.likert-scale {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 42px;
+/* Page-break rule between questions, matching Eli's .question-divider */
+.question + .question {
+    margin-top: var(--gap-question);
+    padding-top: var(--gap-question);
+    border-top: 1px solid var(--line);
 }
 
-.scale-label {
-    min-width: 125px;
-    font-size: clamp(1.3rem, 2vw, 1.8rem);
+.question-label {
+    display: block;
+    margin: 0 0 var(--gap-label);
+    padding: 0;
+    font-size: var(--size-question);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+}
+
+.question-hint {
+    display: block;
+    margin-top: 4px;
+    font-size: var(--size-body);
     font-weight: 400;
+    color: var(--ink-soft);
 }
 
-.agree-label {
-    color: #2fa574;
-    text-align: left;
-}
-
-.disagree-label {
-    color: #8c5ca6;
-    text-align: right;
-}
-
-.options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 42px;
-}
-
-.option {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+/* =========================
+   SELECTION MARKS
+   Shared by the matrix, the radio lists and the checkbox lists.
+   ========================= */
 
 .option input {
     position: absolute;
@@ -79,198 +115,378 @@ body {
     pointer-events: none;
 }
 
-.circle {
-    display: block;
-    border: 3px solid;
-    border-radius: 50%;
-    background-color: transparent;
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.circle-large {
-    width: 72px;
-    height: 72px;
-}
-
-.circle-medium {
-    width: 58px;
-    height: 58px;
-}
-
-.circle-small {
-    width: 48px;
-    height: 48px;
-}
-
-.circle-neutral {
-    width: 40px;
-    height: 40px;
-}
-
-.agree-option .circle {
-    border-color: #2fa574;
-}
-
-.neutral-option .circle {
-    border-color: #9ca3af;
-}
-
-.disagree-option .circle {
-    border-color: #8c5ca6;
-}
-
-.option:hover .circle {
-    transform: scale(1.08);
-}
-
-.option input:focus-visible + .circle {
-    outline: 3px solid #26364d;
-    outline-offset: 5px;
-}
-
-.agree-option input:checked + .circle {
-    background-color: #2fa574;
-    box-shadow: inset 0 0 0 7px #ffffff;
-}
-
-.neutral-option input:checked + .circle {
-    background-color: #9ca3af;
-    box-shadow: inset 0 0 0 7px #ffffff;
-}
-
-.disagree-option input:checked + .circle {
-    background-color: #8c5ca6;
-    box-shadow: inset 0 0 0 7px #ffffff;
-}
-
-/* White check mark inside the selected circle */
-.option input:checked + .circle {
+.mark {
     position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--ink-faint);
+    background-color: transparent;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.option input:checked + .circle::after {
+.mark-radio {
+    border-radius: 50%;
+}
+
+.mark-check {
+    border-radius: var(--radius);
+}
+
+.option:hover .mark {
+    border-color: var(--ink-soft);
+}
+
+.option input:checked + .mark {
+    border-color: var(--accent);
+}
+
+/* Radio: filled dot */
+.mark-radio::after {
     content: "";
     position: absolute;
-    top: 47%;
+    inset: 3px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    transform: scale(0);
+    transition: transform 0.15s ease;
+}
+
+.option input:checked + .mark-radio::after {
+    transform: scale(1);
+}
+
+/* Checkbox: solid fill with a white tick */
+.option input:checked + .mark-check {
+    background-color: var(--accent);
+}
+
+.mark-check::after {
+    content: "";
+    position: absolute;
+    top: 45%;
     left: 50%;
     width: 26%;
-    height: 45%;
-    border-right: 3px solid #ffffff;
-    border-bottom: 3px solid #ffffff;
-    transform: translate(-50%, -60%) rotate(45deg);
+    height: 50%;
+    border-right: 2px solid var(--page);
+    border-bottom: 2px solid var(--page);
+    transform: translate(-50%, -55%) rotate(45deg) scale(0);
+    transition: transform 0.15s ease;
 }
 
-.form-actions {
+.option input:checked + .mark-check::after {
+    transform: translate(-50%, -55%) rotate(45deg) scale(1);
+}
+
+.option input:focus-visible + .mark {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* =========================
+   QUESTION TYPE: Matrix / Likert grid
+   ========================= */
+
+.matrix-scroll {
+    width: 100%;
+}
+
+.matrix {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.matrix th,
+.matrix td {
+    padding: 0;
+}
+
+/* Column headings */
+.matrix thead th {
+    padding: 0 8px 14px;
+    font-size: var(--size-scale);
+    font-weight: 400;
+    color: var(--ink);
+    text-align: center;
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--line);
+}
+
+.matrix thead .matrix-corner {
+    border-bottom: 1px solid var(--line);
+}
+
+/* Statement column */
+.matrix tbody th {
+    width: 42%;
+    padding: 6px 24px 6px 0;
+    font-size: var(--size-body);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Continuous vertical rule between the statements and the scale */
+.matrix .matrix-first {
+    border-left: 1px solid var(--line);
+}
+
+.matrix tbody tr:last-child th,
+.matrix tbody tr:last-child td {
+    border-bottom: 1px solid var(--line);
+}
+
+/* Row highlight — the practical way to track across seven columns */
+.matrix tbody tr:hover,
+.matrix tbody tr:focus-within {
+    background-color: var(--field);
+}
+
+.matrix-cell {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 40px 0 60px;
-}
-
-.submit-button {
-    padding: 14px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-    background-color: #26364d;
+    padding: 16px 8px;
     cursor: pointer;
 }
 
-.submit-button:hover {
-    background-color: #3c4d65;
+/* The scale word lives in the DOM for screen readers and for the
+   stacked mobile layout, but stays hidden on the grid layout. */
+.matrix-scale-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
 }
 
-@media (max-width: 950px) {
+/* =========================
+   QUESTION TYPE: Choice list (radio and checkbox)
+   ========================= */
+
+.choice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 18px;
+    border-radius: var(--radius);
+    background-color: var(--field);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.choice:hover {
+    background-color: var(--field-hover);
+}
+
+.choice:has(input:checked) {
+    background-color: var(--accent-tint);
+    color: var(--ink);
+}
+
+.choice-text {
+    font-size: var(--size-body);
+}
+
+/* =========================
+   "Other (please specify)" text field
+   Made it hidden until its option is selected.
+   ========================= */
+
+.specify-field {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    margin: 2px 0 2px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background-color: var(--field);
+    font-family: inherit;
+    font-size: var(--size-body);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.specify-field::placeholder {
+    color: var(--ink-faint);
+}
+
+.specify-field:focus-visible {
+    border-color: var(--accent);
+    background-color: var(--page);
+    box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.specify-field[hidden] {
+    display: none;
+}
+
+/* =========================
+   QUESTION TYPE: Dropdown
+   ========================= */
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+}
+
+.select-field {
+    width: 100%;
+    padding: 14px 44px 14px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background-color: var(--field);
+    font-family: inherit;
+    font-size: var(--size-body);
+    color: var(--ink);
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.select-field:hover {
+    background-color: var(--field-hover);
+}
+
+.select-field:focus-visible {
+    border-color: var(--accent);
+    background-color: var(--page);
+    box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+/* Chevron */
+.select-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--ink-soft);
+    border-bottom: 2px solid var(--ink-soft);
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .matrix thead th {
+        font-size: 0.8125rem;
+        padding: 0 4px 12px;
+    }
+
+    .matrix tbody th {
+        width: 34%;
+        padding-right: 14px;
+        font-size: 0.9375rem;
+    }
+
+    .matrix-cell {
+        padding: 14px 4px;
+    }
+}
+
+/* Below this width the grid stops working — each statement becomes
+   its own stacked block with the scale words shown in full. */
+@media (max-width: 720px) {
+    :root {
+        --gap-question: 40px;
+    }
+
     .quiz-container {
-        padding: 0 1.5rem;
+        padding: 32px 0 64px;
     }
 
-    .likert-scale {
-        gap: 20px;
+    .matrix,
+    .matrix tbody,
+    .matrix tr,
+    .matrix th,
+    .matrix td {
+        display: block;
+        width: auto;
     }
 
-    .options {
-        gap: 22px;
+    .matrix thead {
+        display: none;
     }
 
-    .scale-label {
-        min-width: 95px;
+    .matrix tbody tr {
+        margin-bottom: 28px;
+    }
+
+    .matrix tbody tr:hover,
+    .matrix tbody tr:focus-within {
+        background-color: transparent;
+    }
+
+    .matrix tbody th {
+        width: auto;
+        padding: 0 0 12px;
+        font-size: var(--size-body);
+        font-weight: 500;
+    }
+
+    .matrix .matrix-first,
+    .matrix tbody tr:last-child th,
+    .matrix tbody tr:last-child td {
+        border: none;
+    }
+
+    .matrix td + td {
+        margin-top: 6px;
+    }
+
+    .matrix-cell {
+        justify-content: flex-start;
+        gap: 14px;
+        padding: 13px 16px;
+        border-radius: var(--radius);
+        background-color: var(--field);
+        color: var(--ink-soft);
+        transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .matrix-cell:hover {
+        background-color: var(--field-hover);
+    }
+
+    .matrix-cell:has(input:checked) {
+        background-color: var(--accent-tint);
+        color: var(--ink);
+    }
+
+    /* Scale word becomes visible in the stacked layout */
+    .matrix-scale-text {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        font-size: var(--size-body);
     }
 }
 
-@media (max-width: 750px) {
-    .question {
-        padding-bottom: 45px;
-    }
-
-    .question legend {
-        margin-bottom: 35px;
-    }
-
-    .likert-scale {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px 10px;
-    }
-
-    .options {
-        grid-column: 1 / -1;
-        grid-row: 1;
-        width: 100%;
-        gap: 16px;
-    }
-
-    .agree-label {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .disagree-label {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    .scale-label {
-        min-width: 0;
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 520px) {
-    .quiz-container {
-        padding: 0 1rem;
-    }
-
-    .options {
-        gap: 9px;
-    }
-
-    .circle-large {
-        width: 48px;
-        height: 48px;
-    }
-
-    .circle-medium {
-        width: 42px;
-        height: 42px;
-    }
-
-    .circle-small {
-        width: 36px;
-        height: 36px;
-    }
-
-    .circle-neutral {
-        width: 32px;
-        height: 32px;
-    }
-
-    .option input:checked + .circle::after {
-        border-right-width: 2px;
-        border-bottom-width: 2px;
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
     }
 }
