@@ -1,12 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 
+/* =========================
+   DESIGN TOKENS
+   Every colour in this file comes from here. To switch the survey
+   to orange, change --accent and --accent-strong only.
+   Orange alternative: --accent: #C2542A; --accent-strong: #A2431F;
+   ========================= */
 
 :root {
     /* Brand */
     --accent: #683AC2;
     --accent-strong: #57309F;
-    --accent-tint: rgba(104, 58, 194, 0.08);
+    --accent-tint: rgba(104, 58, 194, 0.14);
     --accent-ring: rgba(104, 58, 194, 0.25);
+    /* Opaque so it sits over the striped rows without blending.
+       Kept lighter than --accent-tint so hover never looks selected. */
+    --accent-hover: #F4F0FB;
 
     /* Neutrals */
     --page: #ffffff;
@@ -14,7 +23,8 @@
     --ink-soft: #6E7076;
     --ink-faint: #9A9CA2;
     --field: #EFEFEF;
-    --field-hover: #E6E6E7;
+    /* Lighter than --field so the stripe reads as banding, not as a button */
+    --stripe: #F6F6F7;
     --line: #D9D9DB;
 
     /* Type */
@@ -107,7 +117,10 @@ body {
    Shared by the matrix, the radio lists and the checkbox lists.
    ========================= */
 
-.option input {
+/* Hide the native control only — the row's own text input, where a
+   question has one, must stay visible */
+.option input[type="radio"],
+.option input[type="checkbox"] {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -239,10 +252,16 @@ body {
     border-bottom: 1px solid var(--line);
 }
 
-/* Row highlight — the practical way to track across seven columns */
+/* Zebra striping — rows 2, 4, 6... pick up the grey */
+.matrix tbody tr:nth-child(even) {
+    background-color: var(--stripe);
+}
+
+/* Row highlight — the practical way to track across seven columns.
+   Listed after the stripe so it wins on rows of either colour. */
 .matrix tbody tr:hover,
 .matrix tbody tr:focus-within {
-    background-color: var(--field);
+    background-color: var(--accent-hover);
 }
 
 .matrix-cell {
@@ -287,7 +306,7 @@ body {
 }
 
 .choice:hover {
-    background-color: var(--field-hover);
+    background-color: var(--accent-hover);
 }
 
 .choice:has(input:checked) {
@@ -300,38 +319,42 @@ body {
 }
 
 /* =========================
-   "Other (please specify)" text field
-   Made it hidden until its option is selected.
+   Inline "please specify" field
+   Sits on the option row itself, so one click both selects the
+   option and puts the cursor in the box — see script.js
    ========================= */
 
-.specify-field {
-    display: block;
-    width: 100%;
-    max-width: 340px;
-    margin: 2px 0 2px;
-    padding: 12px 14px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background-color: var(--field);
+.specify-inline {
+    flex: 0 1 320px;
+    min-width: 0;
+    /* Pulls back against the row's flex gap so the rule sits close
+       to the colon rather than floating away from it */
+    margin-left: -6px;
+    padding: 2px 4px;
+    border: none;
+    border-bottom: 1px solid var(--ink-faint);
+    border-radius: 0;
+    background-color: transparent;
     font-family: inherit;
     font-size: var(--size-body);
     color: var(--ink);
     outline: none;
-    transition: border-color 0.15s ease, background-color 0.15s ease;
+    transition: border-color 0.15s ease;
 }
 
-.specify-field::placeholder {
+.specify-inline::placeholder {
     color: var(--ink-faint);
 }
 
-.specify-field:focus-visible {
-    border-color: var(--accent);
-    background-color: var(--page);
-    box-shadow: 0 0 0 3px var(--accent-ring);
+.specify-inline:hover {
+    border-bottom-color: var(--ink-soft);
 }
 
-.specify-field[hidden] {
-    display: none;
+.specify-inline:focus {
+    border-bottom-color: var(--accent);
+    border-bottom-width: 2px;
+    /* Keep the row height steady when the rule thickens */
+    margin-bottom: -1px;
 }
 
 /* =========================
@@ -361,7 +384,7 @@ body {
 }
 
 .select-field:hover {
-    background-color: var(--field-hover);
+    background-color: var(--accent-hover);
 }
 
 .select-field:focus-visible {
@@ -433,6 +456,8 @@ body {
         margin-bottom: 28px;
     }
 
+    .matrix tbody tr,
+    .matrix tbody tr:nth-child(even),
     .matrix tbody tr:hover,
     .matrix tbody tr:focus-within {
         background-color: transparent;
@@ -466,7 +491,7 @@ body {
     }
 
     .matrix-cell:hover {
-        background-color: var(--field-hover);
+        background-color: var(--accent-hover);
     }
 
     .matrix-cell:has(input:checked) {

@@ -58,52 +58,44 @@ countries.forEach(function (country) {
 });
 
 // =========================
-// "Other (please specify)" fields
+// Inline "please specify" fields
 // =========================
 
 const specifyTriggers = document.querySelectorAll("[data-specify]");
 
-function updateSpecifyField(trigger, moveFocus) {
+specifyTriggers.forEach(function (trigger) {
     const field = document.getElementById(trigger.dataset.specify);
 
     if (!field) {
         return;
     }
 
-    const shouldShow = trigger.checked;
-
-    if (shouldShow === !field.hidden) {
-        return;
-    }
-
-    field.hidden = !shouldShow;
-
-    if (shouldShow) {
-        if (moveFocus) {
-            field.focus();
+    // clicking the box makes the option tick
+    field.addEventListener("focus", function () {
+        if (!trigger.checked) {
+            trigger.checked = true;
+            trigger.dispatchEvent(new Event("change", { bubbles: true }));
         }
-    } else {
-        // Don't submit an answer the person has deselected
-        field.value = "";
+    });
+
+    // if the option is checked --> focus the field
+    function syncToTrigger() {
+        if (trigger.checked) {
+            field.focus();
+        } else {
+            field.value = "";
+        }
     }
-}
 
-specifyTriggers.forEach(function (trigger) {
-    // A radio only fires "change" when it becomes checked, so the other
-    // members of its group have to be watched too.
     if (trigger.type === "radio") {
-        const group = document.querySelectorAll(
-            `input[name="${trigger.name}"]`
-        );
-
-        group.forEach(function (input) {
-            input.addEventListener("change", function () {
-                updateSpecifyField(trigger, input === trigger);
+        // A radio only fires "change" when it becomes checked, so the
+        // rest of its group has to be watched to catch it losing it.
+        document
+            .querySelectorAll(`input[name="${trigger.name}"]`)
+            .forEach(function (input) {
+                input.addEventListener("change", syncToTrigger);
             });
-        });
     } else {
-        trigger.addEventListener("change", function () {
-            updateSpecifyField(trigger, true);
-        });
+        trigger.addEventListener("change", syncToTrigger);
     }
 });
